@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {PRODUCTS} from './fakeProduct';
+import { PRODUCTS } from './fakeProduct';
+import { Data } from './getDatahttp'
 
 @Component({
   selector: 'app-product',
@@ -8,14 +9,19 @@ import {PRODUCTS} from './fakeProduct';
 })
 export class ProductComponent implements OnInit {
   products = PRODUCTS;
-  constructor() { }
+  users: any;
+  constructor(private data: Data) { }
 
   ngOnInit() {
+    this.data.getUsers().subscribe(data => {
+    this.users = data
+      console.log(this.users)
+    })
   }
-  Buy(){
-    console.log("click to buy!")
+  Buy(index:number,quantily:number) {
+    this.data.Buy(index,quantily)
   }
-  addToCart(){
+  addToCart() {
     console.log("go to cart!")
   }
 }

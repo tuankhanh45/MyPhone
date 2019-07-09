@@ -1,8 +1,7 @@
-<h2>
-    Products list </h2>
+<h2>Products list </h2>
 <ul class="pr">
     <!-- show list product-->
-    <li *ngFor="let product of products">
+    <li *ngFor="let product of products let i=index ">
         <img class="imgPr" src="{{product.src}}">
         <div><span>Name: </span>{{product.name}}</div>
         <div>
@@ -11,9 +10,20 @@
             <span> $$$</span></div>
         <div><span>Details: </span>{{product.detail}}</div>
         <div>
-            <!-- CLICK BUTTON -->
-            <button class="btnbuy" (click)="Buy()">Buy</button>
+            <!-- CLICK BUTTON  action -->
+            <button class="btnbuy" (click)="Buy(i,1)">Buy</button>
+            <form>
+                Quantity:
+                <input type="number" name="quantity" min="0" max="1000" step="1" value="0">
+                <input type="submit">
+            </form>
             <button class="btnaddcart" (click)="addToCart()">Add to cart</button>
         </div>
+    </li>
+</ul>
+<h2> User </h2>
+<ul *ngIf="users">
+    <li *ngFor="let user of users.data ">
+        <div><span>Name: </span> {{user.first_name}} {{user.last_name}}</div>
     </li>
 </ul>
