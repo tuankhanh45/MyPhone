@@ -1,1 +1,19 @@
-<p>product works!</p>
+<h2>
+    Products list </h2>
+<ul class="pr">
+    <!-- show list product-->
+    <li *ngFor="let product of products">
+        <img class="imgPr" src="{{product.src}}">
+        <div><span>Name: </span>{{product.name}}</div>
+        <div>
+            <span>Price: </span>
+            <span class="pricePr">{{product.price}}</span>
+            <span> $$$</span></div>
+        <div><span>Details: </span>{{product.detail}}</div>
+        <div>
+            <!-- CLICK BUTTON -->
+            <button class="btnbuy" (click)="Buy()">Buy</button>
+            <button class="btnaddcart" (click)="addToCart()">Add to cart</button>
+        </div>
+    </li>
+</ul>

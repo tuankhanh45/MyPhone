@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {PRODUCTS} from './fakeProduct';
 
 @Component({
   selector: 'app-product',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-
+  products = PRODUCTS;
   constructor() { }
 
   ngOnInit() {
   }
-
+  Buy(){
+    console.log("click to buy!")
+  }
+  addToCart(){
+    console.log("go to cart!")
+  }
 }
